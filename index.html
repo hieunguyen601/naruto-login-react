@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/naruto-logo.jpeg">
+    <title>Naruto Login</title>
+    <style>
+
+        .heading {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: end;
+            margin-bottom: 15px;
+
+        }
+        
+        html, body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:antiquewhite;
+        }
+
+        .name {
+            font-size: 20px;
+        }
+
+        .logo {
+            width: 50px;
+            border-radius: 50px;
+        }
+        
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            height: 35vh;
+            background-image: url(./images/naruto.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            max-width: 500px;
+            border-radius: 20px;
+            max-width: 500px;
+        }
+
+        .email-input, .password-input {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            max-width: 500px;
+            border-radius: 10px;
+            border-color: gray;
+            border-style: none;
+        }
+
+        .show-password-button {
+            font-size: 10px;
+            height: 25px;
+            width: 30px;
+            padding-left: 0;
+            position: absolute;
+            top: 2;
+        }
+
+        .sign-in-button {
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 169, 8, 0.893);
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .show-password-button {
+            position: absolute;
+            right: 10px; 
+            top: 50%;
+            transform: translateY(-80%);
+            width: 40px;
+            padding-left: 6px;
+            border: none;
+            background-color: rgba(255, 169, 8, 0.893);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .media-button {
+            margin-left: 15px;
+            margin-right: 20px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 169, 8, 0.893);
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .sign-in-button:hover, .show-password-button:hover, .media-button:hover {
+            opacity: 0.8;
+        }
+
+        .sign-in-button:active, .show-password-button:active, .media-button:active {
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+        function ImageLogo() {
+            return(
+                <div className="heading">
+                    <img className ="logo" src="./images/HenryNguyen.png"/>
+                    <p className="name">Henry Nguyen</p>
+                </div>
+            );
+        }
+
+        function EmailLogin() {
+            const [email, setEmail] = React.useState('');
+            return (
+                <>
+                    <input className="email-input" type="email" placeholder="Email" value={email} onChange={event => setEmail(event.target.value)} />
+                </>
+            );
+        }
+
+        function PasswordLogin() {
+            const [password, setPassword] = React.useState('');
+            const [showPassword, setShowPassword] = React.useState(false);
+            const toggle = () => {
+                setShowPassword(!showPassword);
+            }
+            return (
+                <div style={{ position: 'relative' }}>
+                    <input
+                        className="password-input"
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
+                        value={password}
+                        onChange={event => setPassword(event.target.value)}
+                        maxlength="16"
+                    />
+                    <button
+                        className="show-password-button"
+                        type="button"
+                        onClick={toggle}
+                    >
+                        {showPassword ? 'Hide' : 'Show'}
+                    </button>
+                </div>
+            );
+        }
+
+        function MediasLogin() {
+            return (
+                <div className="media-buttons">
+                    <button className="media-button">Google</button>
+                    <button className="media-button">Facebook</button>
+                    <button className="media-button">Apple</button>
+                </div>
+
+            );
+        }
+
+        function App() {
+
+            return (
+                <div className="login-container">
+                    <ImageLogo />
+                    <div className="login-section">
+                        <EmailLogin />
+                        <PasswordLogin />
+                    </div>
+                    <button className="sign-in-button">Sign In</button>
+                    <div>
+                        <MediasLogin />
+                    </div>
+                </div>
+            );
+        }
+        const container = document.querySelector('.container');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+
+    </script>
+</body>
+</html>
