@@ -7,7 +7,7 @@ A Naruto-themed, responsive login interface built with **HTML**, **CSS**, and **
 - Animated branding/logo
 - Responsive layout for desktop and mobile
 
-[![Login Preview](./images/Naruto-login.png)](https://github.com/hieunguyen601/naruto-login-react/blob/1552023a711066d6499c6f68b83043bb8cf46b8e/images/Naruto-login.PNG)
+![image alt](https://github.com/hieunguyen601/naruto-login-react/blob/1552023a711066d6499c6f68b83043bb8cf46b8e/images/Naruto-login.PNG)
 
 ## 🔥 Features
 
